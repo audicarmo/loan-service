@@ -10,4 +10,28 @@ public class LoanSimulationRequest {
     private int paymentPeriodMonths;
 
     // Getters e Setters
+    public BigDecimal getLoanAmount() {
+        return loanAmount;
+    }
+
+    public void setLoanAmount(BigDecimal loanAmount) {
+        this.loanAmount = loanAmount;
+    }
+
+    public LocalDate getDateOfBirthClient() {
+        return dateOfBirthClient;
+    }
+
+    public void setDateOfBirthClient(LocalDate dateOfBirthClient) {
+        this.dateOfBirthClient = dateOfBirthClient;
+    }
+
+    public int getPaymentPeriodMonths() {
+        return paymentPeriodMonths;
+    }
+
+    public void setPaymentPeriodMonths(int paymentPeriodMonths) {
+        this.paymentPeriodMonths = paymentPeriodMonths;
+    }
+
 }

@@ -7,9 +7,16 @@ import java.math.BigDecimal;
 @Component
 public class TaxCalculator {
 
-    BigDecimal calculateInterestRate(int age) {
-        // Retorna a taxa de juros com base na idade do cliente
-        return null;
+    public BigDecimal calculateInterestRate(int idade) {
+        if (idade <= 25) {
+            return BigDecimal.valueOf(0.05);
+        } else if (idade <= 40) {
+            return BigDecimal.valueOf(0.03);
+        } else if (idade <= 60) {
+            return BigDecimal.valueOf(0.02);
+        } else {
+            return BigDecimal.valueOf(0.04);
+        }
     }
 
 }

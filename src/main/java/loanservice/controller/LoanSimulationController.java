@@ -1,5 +1,7 @@
 package loanservice.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import loanservice.entity.request.LoanSimulationRequest;
 import loanservice.entity.response.LoanSimulationResponse;
 import loanservice.service.LoanSimulationService;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/simulations")
+@Tag(name = "Credit Simulator", description = "Endpoints for credit simulation")
 class LoanSimulationController {
     private final LoanSimulationService loanSimulationService;
 
@@ -19,9 +22,11 @@ class LoanSimulationController {
     }
 
     @PostMapping("/simulation")
+    @Operation(summary = "Simulate Loan", description = "Simulates a loan based on the parameters provided.")
     public ResponseEntity<LoanSimulationResponse> simulateLoan(
             @RequestBody LoanSimulationRequest request) {
-        // Invoca o serviço e retorna a resposta
-        return null;
+        LoanSimulationResponse response = loanSimulationService.simulateLoan(request);
+        return ResponseEntity.ok(response);
     }
+
 }
