@@ -40,8 +40,8 @@ class LoanSimulationServiceImpl implements LoanSimulationService {
         return response;
     }
 
-    private int calculateAge(LocalDate dataNascimento) {
-        return Period.between(dataNascimento, LocalDate.now()).getYears();
+    private int calculateAge(LocalDate dateBirth) {
+        return Period.between(dateBirth, LocalDate.now()).getYears();
     }
 
     private BigDecimal calcularPMT(BigDecimal loanAmount, BigDecimal interestRateMonthly, int paymentPeriodMonths) {
