@@ -1,1 +1,1 @@
-# loan-service
+# loan-simulation-service
