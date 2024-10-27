@@ -28,7 +28,7 @@ class LoanSimulationServiceImpl implements LoanSimulationService {
         BigDecimal loanAmount = request.getLoanAmount();
         int paymentPeriodMonths = request.getPaymentPeriodMonths();
 
-        BigDecimal pmt = calcularPMT(loanAmount, interestRateMonthly, paymentPeriodMonths);
+        BigDecimal pmt = calculatePMT(loanAmount, interestRateMonthly, paymentPeriodMonths);
         BigDecimal amountPaidTotal = pmt.multiply(BigDecimal.valueOf(paymentPeriodMonths));
         BigDecimal interestPaidTotal = amountPaidTotal.subtract(loanAmount);
 
@@ -44,10 +44,15 @@ class LoanSimulationServiceImpl implements LoanSimulationService {
         return Period.between(dateBirth, LocalDate.now()).getYears();
     }
 
-    private BigDecimal calcularPMT(BigDecimal loanAmount, BigDecimal interestRateMonthly, int paymentPeriodMonths) {
+    private BigDecimal calculatePMT(BigDecimal loanAmount, BigDecimal interestRateMonthly, int paymentPeriodMonths) {
+        if (interestRateMonthly.compareTo(BigDecimal.ZERO) == 0) {
+            return loanAmount.divide(BigDecimal.valueOf(paymentPeriodMonths), RoundingMode.HALF_EVEN);
+        }
+
         BigDecimal base = interestRateMonthly.add(BigDecimal.ONE).pow(paymentPeriodMonths);
         return loanAmount.multiply(interestRateMonthly).multiply(base)
                 .divide(base.subtract(BigDecimal.ONE), RoundingMode.HALF_EVEN);
     }
+
 
 }
