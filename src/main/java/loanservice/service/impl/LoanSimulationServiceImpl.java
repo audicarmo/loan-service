@@ -3,8 +3,8 @@ package loanservice.service.impl;
 import loanservice.entity.request.LoanSimulationRequest;
 import loanservice.entity.response.LoanSimulationResponse;
 import loanservice.service.LoanSimulationService;
-import loanservice.util.LoanCalculator;
-import loanservice.util.TaxCalculator;
+import loanservice.utils.LoanCalculator;
+import loanservice.utils.TaxCalculator;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

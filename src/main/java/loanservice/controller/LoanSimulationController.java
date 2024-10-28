@@ -28,5 +28,4 @@ class LoanSimulationController {
         LoanSimulationResponse response = loanSimulationService.simulateLoan(request);
         return ResponseEntity.ok(response);
     }
-
 }

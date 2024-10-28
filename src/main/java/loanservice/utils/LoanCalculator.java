@@ -1,4 +1,4 @@
-package loanservice.util;
+package loanservice.utils;
 
 import org.springframework.stereotype.Component;
 
