@@ -11,6 +11,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 @Service
 public class LoanSimulationServiceImpl implements LoanSimulationService {
@@ -46,6 +49,17 @@ public class LoanSimulationServiceImpl implements LoanSimulationService {
         interestPaidTotal = interestPaidTotal.setScale(2, ROUNDING_MODE);
 
         return createResponse(monthlyInstallment, amountPaidTotal, interestPaidTotal);
+    }
+
+    @Override
+    public List<LoanSimulationResponse> simulateLoans(List<LoanSimulationRequest> requests) {
+        List<CompletableFuture<LoanSimulationResponse>> futures = requests.stream()
+                .map(request -> CompletableFuture.supplyAsync(() -> simulateLoan(request)))
+                .collect(Collectors.toList());
+
+        return futures.stream()
+                .map(CompletableFuture::join)
+                .collect(Collectors.toList());
     }
 
     private void validateRequest(LoanSimulationRequest request) {
