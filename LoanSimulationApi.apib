@@ -1,0 +1,65 @@
+# <LOAN SIMULATION API>
+
+        HOST: http://localhost:8080/api/v1
+
+        # Credit Simulator API
+        API para simulação de crédito com endpoints para simulação de empréstimos.
+
+        ## Grupo de Simulação de Empréstimo
+
+        ### Simular Empréstimo [POST /simulations/simulation]
+        Simula um único empréstimo com base nos parâmetros fornecidos.
+
+        + Request (application/json)
+        + Body
+
+        {
+        "loanAmount": 10000.00,
+        "dateOfBirthClient": "1985-06-15",
+        "paymentPeriodMonths": 24
+        }
+
+        + Response 200 (application/json)
+        + Body
+
+        {
+        "amountPaidTotal": 12000.00,
+        "installmentsMonthly": 500.00,
+        "interestPaidTotal": 2000.00
+        }
+
+        ### Simular Vários Empréstimos [POST /simulations/simulations]
+        Simula múltiplos empréstimos com base nos parâmetros fornecidos.
+
+        + Request (application/json)
+        + Body
+
+        [
+        {
+        "loanAmount": 15000.00,
+        "dateOfBirthClient": "1990-04-10",
+        "paymentPeriodMonths": 12
+        },
+        {
+        "loanAmount": 20000.00,
+        "dateOfBirthClient": "1982-11-25",
+        "paymentPeriodMonths": 36
+        }
+        ]
+
+        + Response 200 (application/json)
+        + Body
+
+        [
+        {
+        "amountPaidTotal": 18000.00,
+        "installmentsMonthly": 1500.00,
+        "interestPaidTotal": 3000.00
+        },
+        {
+        "amountPaidTotal": 24000.00,
+        "installmentsMonthly": 800.00,
+        "interestPaidTotal": 4000.00
+        }
+        ]
+
