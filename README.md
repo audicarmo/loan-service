@@ -47,3 +47,22 @@ Essa api foi documentada com a ferramenta API Blueprint.
 Para acessar a documentação, utilize a plataforma [apiary](https://apiary.io), faca o login, e utilize o script constante no arquivo LoanSimulationApi.apib
 
 Observação: Não foi possível completar a implementação do swagger nesta api.
+
+
+## Boas práticas:
+- Implementação de interface (Princípio da segregação de interface - SOLID)
+- Injeção de dependência por construtor (TaxCalculator e LoanCalculator)
+- Constantes e precisão do Bigdecimal
+- Responsabilidade única e métodos privados
+- Validação de entrada (validateRequest)
+- Método assíncrono para múltiplas funções (completableFuture e supplyAssinc)
+- Princípio DRY(Don't Repeat Yourself) - O cálculo de valores como interestRateMonthly,
+  monthlyInstallment, amountPaidTotal, e interestPaidTotal é realizado de forma modular,
+  com operações definidas em uma sequência clara, sem repetir códigos desnecessários, 
+ o que favorece a manutenção e legibilidade.
+- Definição de precisão com setScale
+- Princípio da Responsabilidade única - Solid
+
+
+
+  
