@@ -9,9 +9,9 @@ http://localhost:8080/api/v1/simulations/simulation
 Body:
 
 {
-"valorEmprestimo": 10000,
-"dataNascimentoCliente": "1995-06-15",
-"prazoPagamentoMeses": 24
+"loanAmount": 10000,
+"dateOfBirthClient": "1995-06-15",
+"paymentPeriodMonths": 24
 }
 
 
