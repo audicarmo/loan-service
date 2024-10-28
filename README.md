@@ -1,6 +1,9 @@
 # loan-service
 
+## Setup
+Para configurar e subir essa api é necessário possuir Java 17 ou 8. Você poderá instalar o JDK a partir do [SDKman](https://sdkman.io).
 
+Observação: Embora a persistência de dados através do spring data jpa esteja configurada, não houve a necessidade, em um primeiro momento, de a utilizarmos. Por essa razão, não será necessário instalar banco de dados.
 ## REQUISIÇÕES via Postman:
 
 POST - Taxa de juros de acordo com a idade: 
@@ -38,8 +41,9 @@ Body:
 ]
 
 
-## Swagger:
+## Documentação:
 
-http://localhost:8080/swagger-ui/index.html
+Essa api foi documentada com a ferramenta API Blueprint. 
+Para acessar a documentação, utilize a plataforma [apiary](https://apiary.io), faca o login, e utilize o script constante no arquivo LoanSimulationApi.apib
 
-http://localhost:8080/swagger-ui.html
+Observação: Não foi possível completar a implementação do swagger nesta api.
